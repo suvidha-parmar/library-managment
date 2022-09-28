@@ -1,0 +1,54 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block start %}
+<div class="container">
+    
+<div class="modal fade" id="bookaddedmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <!-- <h5 class="modal-title" id="exampleModalLabel">Modal title</h5> -->
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Book Added sucessfully
+        </div>
+        
+      </div>
+    </div>
+  </div>
+    <form method="POST"> 
+    {% csrf_token %}
+    <div class="row mt-4">
+        <div class="form-group col-md-12">
+            <label><i style="font-weight: bold;">Book Name</i></label>
+            <input type="text" class="form-control mt-2" name="bookname" placeholder="Enter name of the Book" required>
+        </div>
+    </div>
+ 
+    <div class="row mt-4">
+        <div class="form-group col-md-12">
+            <label><i style="font-weight: bold;">Author Name</i></label>
+            <input type="text" class="form-control mt-2" name="author" placeholder="Enter name of the Author" required>
+        </div>
+    </div>
+ 
+    <div class="row mt-4">
+        <div class="form-group col-md-12">
+            <label><i style="font-weight: bold;">ISBN Number</i></label>
+            <input type="number" class="form-control mt-2" name="isbn" placeholder="Enter ISBN number of the book" required>
+        </div>
+    </div>
+ 
+    <div class="row mt-4">
+        <div class="form-group col-md-12">
+            <label><i style="font-weight: bold;">Category</i></label>
+            <input type="text" class="form-control mt-2" name="category" placeholder="Enter Category of the book" required>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-outline-primary mt-4" data-target="#bookaddedmodal">Add Book</button>
+</div>
+</form>
+{% endblock %}
